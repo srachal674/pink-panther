@@ -1,11 +1,11 @@
 function playMeasures2and3 () {
     // Play measure 2
-    music.play(music.tonePlayable(294, calculateDottedDuration(3 / 2)), music.PlaybackMode.UntilDone)
-    music.rest(calculateDottedDuration(3 / 4))
-    music.play(music.tonePlayable(220, calculateDottedDuration(3 / 2)), music.PlaybackMode.UntilDone)
-    music.rest(calculateDottedDuration(3 / 4))
-    music.play(music.tonePlayable(294, calculateDottedDuration(3 / 2)), music.PlaybackMode.UntilDone)
-    music.rest(calculateDottedDuration(3 / 4))
+    music.play(music.tonePlayable(294, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
+    music.rest(calculateDottedDuration(music.beat(BeatFraction.Eighth)))
+    music.play(music.tonePlayable(220, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
+    music.rest(calculateDottedDuration(music.beat(BeatFraction.Eighth)))
+    music.play(music.tonePlayable(294, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+    music.rest(calculateDottedDuration(music.beat(BeatFraction.Eighth)))
     music.rest(music.beat(BeatFraction.Quarter))
     music.play(music.tonePlayable(247, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
     music.play(music.tonePlayable(262, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
@@ -25,7 +25,7 @@ function calculateDottedDuration (originalDuration: number) {
     return dottedDuration
 }
 let dottedDuration = 0
-music.setTempo(55)
+music.setTempo(40)
 music.setVolume(128)
 // this should play 1/8 low b natural 1/8 middle c 1/8 rest 1/8 middle c sharp barline
 music.play(music.tonePlayable(247, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
