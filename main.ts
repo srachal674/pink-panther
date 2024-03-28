@@ -164,9 +164,6 @@ function playSong () {
     playMeasures6to19()
     playMeasures22to25()
 }
-input.onButtonPressed(Button.B, function () {
-    music.stopMelody(MelodyStopOptions.All)
-})
 // Declare the variable at the global scope
 // Define the function to calculate dotted duration
 function calculateDottedDuration (originalDuration: number) {
