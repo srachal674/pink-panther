@@ -1,37 +1,4 @@
 let dottedDuration = 0
-/**
- * function playMeasures2and3 () {
- * 
- * // This is played 2 times and covers measueres 2 - 5 in the music.
- * 
- * // Play measure 2
- * 
- * music.play(music.tonePlayable(294, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
- * 
- * music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
- * 
- * music.play(music.tonePlayable(220, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
- * 
- * music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
- * 
- * // Measure 3
- * 
- * music.play(music.tonePlayable(294, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
- * 
- * music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
- * 
- * music.rest(music.beat(BeatFraction.Quarter))
- * 
- * music.play(music.tonePlayable(247, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
- * 
- * music.play(music.tonePlayable(262, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
- * 
- * music.rest(music.beat(BeatFraction.Eighth))
- * 
- * music.play(music.tonePlayable(277, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
- * 
- * }
- */
 // This program should play the 2nd Trombone part for the Trombone duet for The Pink Panther by Henry Mancini. The flow is measures 1 - 21 repeat to measure 6 and play to measure 19 and go to the second endiing which is measure 21 and play to the end.
 function playMeasures6to21 () {
     // This function plays measures 6-19 and the first ending. The first ending is measures 20 and 21.
@@ -53,17 +20,7 @@ function playMeasures6to21 () {
 input.onButtonPressed(Button.A, function () {
     music.setTempo(40)
     music.setVolume(228)
-    // this should play 1/8 low b natural 1/8 middle c 1/8 rest 1/8 middle c sharp barline
-    music.play(music.tonePlayable(247, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
-    music.play(music.tonePlayable(262, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
-    music.rest(music.beat(BeatFraction.Eighth))
-    music.play(music.tonePlayable(277, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
-    // Play measures 2 and 3 twice
-    // playMeasures2and3()
-    // playMeasures2and3()
-    playMeasures6to21()
-    playMeasures6to19()
-    playMeasures22to25()
+    playSong()
 })
 function playMeasures22to25 () {
     // This function plays the second ending to the end. Mesaures 22 - 25.
@@ -194,6 +151,32 @@ function playMeasures6to19 () {
     // Measure 19
     music.rest(music.beat(BeatFraction.Breve))
 }
+function playSong () {
+    // this should play 1/8 low b natural 1/8 middle c 1/8 rest 1/8 middle c sharp barline
+    music.play(music.tonePlayable(247, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    music.play(music.tonePlayable(262, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    music.rest(music.beat(BeatFraction.Eighth))
+    music.play(music.tonePlayable(277, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    // Play measures 2 and 3 twice
+    // playMeasures2and3()
+    // playMeasures2and3()
+    playMeasures6to21()
+    playMeasures6to19()
+    playMeasures22to25()
+}
+input.onButtonPressed(Button.B, function () {
+    // Turn on an LED to indicate button B press
+    led.plot(2, 2);
+
+    // Stop each sound channel individually
+    music.stopMelody(MelodyStopOptions.All);
+    music.rest(music.beat(BeatFraction.Whole)); // Ensure a whole beat rest
+
+    // After a brief delay, turn off the LED
+    basic.pause(1000); // Adjust the delay time as needed
+    led.unplot(2, 2);
+})
+
 // Declare the variable at the global scope
 // Define the function to calculate dotted duration
 function calculateDottedDuration (originalDuration: number) {
