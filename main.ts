@@ -1,3 +1,4 @@
+let dottedDuration = 0
 /**
  * function playMeasures2and3 () {
  * 
@@ -49,6 +50,21 @@ function playMeasures6to21 () {
     music.rest(music.beat(BeatFraction.Eighth))
     music.play(music.tonePlayable(277, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
 }
+input.onButtonPressed(Button.A, function () {
+    music.setTempo(40)
+    music.setVolume(228)
+    // this should play 1/8 low b natural 1/8 middle c 1/8 rest 1/8 middle c sharp barline
+    music.play(music.tonePlayable(247, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    music.play(music.tonePlayable(262, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    music.rest(music.beat(BeatFraction.Eighth))
+    music.play(music.tonePlayable(277, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    // Play measures 2 and 3 twice
+    // playMeasures2and3()
+    // playMeasures2and3()
+    playMeasures6to21()
+    playMeasures6to19()
+    playMeasures22to25()
+})
 function playMeasures22to25 () {
     // This function plays the second ending to the end. Mesaures 22 - 25.
     // Measure 22
@@ -105,7 +121,7 @@ function playMeasures6to19 () {
     music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
     // Measure 9
     // This is a B-flat
-    music.play(music.tonePlayable(277, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
+    music.play(music.tonePlayable(233, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
     music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
     music.rest(music.beat(BeatFraction.Quarter))
     music.play(music.tonePlayable(247, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
@@ -184,17 +200,3 @@ function calculateDottedDuration (originalDuration: number) {
     dottedDuration = originalDuration + originalDuration / 2
     return dottedDuration
 }
-let dottedDuration = 0
-music.setTempo(40)
-music.setVolume(228)
-// this should play 1/8 low b natural 1/8 middle c 1/8 rest 1/8 middle c sharp barline
-music.play(music.tonePlayable(247, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
-music.play(music.tonePlayable(262, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
-music.rest(music.beat(BeatFraction.Eighth))
-music.play(music.tonePlayable(277, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
-// Play measures 2 and 3 twice
-// playMeasures2and3()
-// playMeasures2and3()
-playMeasures6to21()
-playMeasures6to19()
-playMeasures22to25()
