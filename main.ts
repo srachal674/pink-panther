@@ -165,18 +165,8 @@ function playSong () {
     playMeasures22to25()
 }
 input.onButtonPressed(Button.B, function () {
-    // Turn on an LED to indicate button B press
-    led.plot(2, 2);
-
-    // Stop each sound channel individually
-    music.stopMelody(MelodyStopOptions.All);
-    music.rest(music.beat(BeatFraction.Whole)); // Ensure a whole beat rest
-
-    // After a brief delay, turn off the LED
-    basic.pause(1000); // Adjust the delay time as needed
-    led.unplot(2, 2);
+    music.stopMelody(MelodyStopOptions.All)
 })
-
 // Declare the variable at the global scope
 // Define the function to calculate dotted duration
 function calculateDottedDuration (originalDuration: number) {
