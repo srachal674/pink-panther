@@ -1,9 +1,12 @@
 function playMeasures2and3 () {
+    //This is played 2 times and covers measueres 2 - 5 in the music.
     // Play measure 2
     music.play(music.tonePlayable(294, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
     music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
     music.play(music.tonePlayable(220, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
     music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
+    
+    //Measure 3
     music.play(music.tonePlayable(294, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
     music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
     music.rest(music.beat(BeatFraction.Quarter))
