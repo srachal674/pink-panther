@@ -1,5 +1,54 @@
-// Measure 9
-// Measure 10
+//This program should play the 2nd Trombone part for the Trombone duet for The Pink Panther by Henry Mancini. The flow is measures 1 - 21 repeat to measure 6 and play to measure 19 and go to the second endiing which is measure 21 and play to the end.
+
+
+function playMeasures6to21 () {
+    // This function plays measures 6-19 and the first ending. The first ending is measures 20 and 21.
+    playMeasures6to19()
+    // Measure 20
+    music.play(music.tonePlayable(294, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
+    music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
+    music.play(music.tonePlayable(220, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
+    music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
+    // Measure 21
+    music.play(music.tonePlayable(294, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
+    music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
+    music.rest(music.beat(BeatFraction.Quarter))
+    music.play(music.tonePlayable(247, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    music.play(music.tonePlayable(262, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    music.rest(music.beat(BeatFraction.Eighth))
+    music.play(music.tonePlayable(277, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+}
+function playMeasures22to25 () {
+    // This function plays the second ending to the end. Mesaures 22 - 25.
+    // Measure 22
+    music.play(music.tonePlayable(294, calculateDottedDuration(music.beat(BeatFraction.Half))), music.PlaybackMode.UntilDone)
+    music.play(music.tonePlayable(294, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    music.rest(music.beat(BeatFraction.Eighth))
+    // This is a D-flat
+    music.play(music.tonePlayable(277, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    music.play(music.tonePlayable(262, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    music.rest(music.beat(BeatFraction.Eighth))
+    music.play(music.tonePlayable(247, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    // Measure 23
+    // This is a B-flat
+    music.play(music.tonePlayable(233, calculateDottedDuration(music.beat(BeatFraction.Half))), music.PlaybackMode.UntilDone)
+    // This is a B-flat
+    music.play(music.tonePlayable(233, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    music.rest(music.beat(BeatFraction.Eighth))
+    music.play(music.tonePlayable(247, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    music.play(music.tonePlayable(262, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    music.rest(music.beat(BeatFraction.Eighth))
+    music.play(music.tonePlayable(277, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
+    // Measure 24
+    music.play(music.tonePlayable(294, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
+    music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
+    music.play(music.tonePlayable(220, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
+    music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
+    // Measure 25
+    music.play(music.tonePlayable(294, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
+    music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
+    music.rest(calculateDottedDuration(music.beat(BeatFraction.Half)))
+}
 function playMeasures6to19 () {
     // This function plays measures 6 - 19 and will be used in other functions.
     // Measure 6
@@ -114,12 +163,6 @@ function playMeasures2and3 () {
     music.rest(music.beat(BeatFraction.Eighth))
     music.play(music.tonePlayable(277, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
 }
-function playMeasures621 () {
-    playMeasures6to19()
-    music.play(music.tonePlayable(294, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
-    music.rest(calculateDottedDuration(music.beat(BeatFraction.Quarter)))
-    music.play(music.tonePlayable(220, calculateDottedDuration(music.beat(BeatFraction.Quarter))), music.PlaybackMode.UntilDone)
-}
 // Declare the variable at the global scope
 // Define the function to calculate dotted duration
 function calculateDottedDuration (originalDuration: number) {
@@ -137,3 +180,6 @@ music.play(music.tonePlayable(277, music.beat(BeatFraction.Eighth)), music.Playb
 // Play measures 2 and 3 twice
 playMeasures2and3()
 playMeasures2and3()
+playMeasures6to21()
+playMeasures6to19()
+playMeasures22to25()
