@@ -1,3 +1,17 @@
+# Pink Panther — micro:bit trombone music
+
+A Microsoft MakeCode project intended to play the second-trombone part of *The Pink Panther* on a micro:bit. The project metadata calls it **Pink Panther Trombone 2**.
+
+The TypeScript program plays the music when button A is pressed. The repository contains MakeCode blocks, TypeScript, and Python versions of the music code.
+
+## Project files
+
+- `main.ts` — the TypeScript music program.
+- `main.blocks` — the MakeCode blocks representation.
+- `main.py` — a Python version of the music experiment.
+
+The existing project address and MakeCode instructions are preserved below.
+
 
 > Open this page at [https://srachal674.github.io/pink-panther/](https://srachal674.github.io/pink-panther/)
 
